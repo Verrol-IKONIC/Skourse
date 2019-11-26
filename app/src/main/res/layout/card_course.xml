@@ -3,34 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Cons_cardCourse"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_card_crs"
-        android:layout_width="171dp"
-        android:layout_height="236dp"
+        android:layout_width="154dp"
+        android:layout_height="228dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
         app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Cons_cardView_crs"
-            android:layout_width="171dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView_courseTitle"
                 android:layout_width="135dp"
-                android:layout_height="31dp"
-                android:layout_marginTop="44dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="TextView"
                 android:textAlignment="center"
                 android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
