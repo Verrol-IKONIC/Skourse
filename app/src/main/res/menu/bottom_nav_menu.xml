@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/navigation_myCourse"
-        android:icon="@drawable/mycourse_icon"
-        android:title="@string/title_MyCourse" />
+
     <item
         android:id="@+id/navigation_Home"
         android:icon="@drawable/home_icon"
         android:title="@string/title_home" />
+    <item
+        android:id="@+id/navigation_myCourse"
+        android:icon="@drawable/mycourse_icon"
+        android:title="@string/title_MyCourse" />
     <item
         android:id="@+id/navigation_Profile"
         android:icon="@drawable/profile_icon"
