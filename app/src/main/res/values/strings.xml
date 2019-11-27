@@ -8,4 +8,7 @@
     <string name="title_Mycourse" />
     <string name="title_MyCourse">My Course</string>
     <string name="title_Profile">Profile</string>
+    <string name="btn_search">Search</string>
+    <string name="btn_back"><![CDATA[<]]></string>
+    <string name="plaintext_Search">Search...</string>
 </resources>
