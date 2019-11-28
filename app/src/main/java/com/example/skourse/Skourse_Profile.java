@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -30,6 +31,7 @@ public class Skourse_Profile extends AppCompatActivity {
     RequestQueue requestQueue;
     String username = "", role = "", name = "", birthday = "", email = "",
             gender = "", phone = "", city = "", address = "", favourite = "";
+    ProgressBar progressBar_loading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,9 @@ public class Skourse_Profile extends AppCompatActivity {
         textView_showCity = findViewById(R.id.textView_showCity);
         textView_showAddress = findViewById(R.id.textView_showAddress);
         textView_showFavourite = findViewById(R.id.textView_showFavourite);
+        progressBar_loading = findViewById(R.id.progressBar_loading);
+
+        progressBar_loading.setVisibility(View.VISIBLE);
 
         requestQueue = Volley.newRequestQueue(Skourse_Profile.this);
         load_data();
@@ -79,6 +84,7 @@ public class Skourse_Profile extends AppCompatActivity {
                                 address = obj.getString("address");
                                 favourite = obj.getString("favourite");
 
+                                progressBar_loading.setVisibility(View.INVISIBLE);
                                 //show in textView
                                 textView_nama.setText(username);
                                 textView_role.setText(role);
