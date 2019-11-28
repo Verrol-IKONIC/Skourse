@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.skourse.adapters.HorizontalCourseAdapter;
+import com.example.skourse.adapters.VerticalSearchResultAdapter;
 
 public class MainActivity extends AppCompatActivity {
     ActionBar bar;
@@ -27,5 +28,9 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView list_recently = (RecyclerView) findViewById(R.id.RecyclerView_recentlyBooked);
         list_recently.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         list_recently.setAdapter(new HorizontalCourseAdapter(new String[]{"MobileApp Course", "Vocal Course"}));
+
+        RecyclerView list_searchResult = (RecyclerView) findViewById(R.id.RecyclerView_searchResult);
+        list_searchResult.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        list_searchResult.setAdapter(new VerticalSearchResultAdapter(new String[]{"MobileApp Course", "Vocal Course", "MobileApp Course", "Vocal Course"}));
     }
 }
