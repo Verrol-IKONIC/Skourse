@@ -20,8 +20,12 @@ public class MainActivity extends AppCompatActivity {
         bar = getSupportActionBar();
         bar.hide();
 
-        RecyclerView list = (RecyclerView) findViewById(R.id.RecyclerView_course);
-        list.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        list.setAdapter(new HorizontalCourseAdapter(new String[]{"Alpro Course", "MobileApp Course", "Vocal Course"}));
+        RecyclerView list_course = (RecyclerView) findViewById(R.id.RecyclerView_course);
+        list_course.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        list_course.setAdapter(new HorizontalCourseAdapter(new String[]{"Alpro Course", "MobileApp Course", "Vocal Course"}));
+
+        RecyclerView list_recently = (RecyclerView) findViewById(R.id.RecyclerView_recentlyBooked);
+        list_recently.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        list_recently.setAdapter(new HorizontalCourseAdapter(new String[]{"MobileApp Course", "Vocal Course"}));
     }
 }

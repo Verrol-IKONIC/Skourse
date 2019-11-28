@@ -10,10 +10,10 @@
         android:id="@+id/textView_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/Homepage_title"
-        android:textSize="24sp"
+        android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@android:drawable/edit_text"
@@ -55,12 +55,33 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView_course"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="411dp"
+        android:layout_height="191dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_courseNearMe" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_courseNearMe">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/textView_recentlyBooked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/Homepage_recentlyBooked"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_courseNearMe"
+        app:layout_constraintTop_toBottomOf="@+id/RecyclerView_course" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerView_recentlyBooked"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/RecyclerView_course"
+        app:layout_constraintStart_toStartOf="@+id/RecyclerView_course"
+        app:layout_constraintTop_toBottomOf="@+id/textView_recentlyBooked" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
