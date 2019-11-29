@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.skourse.adapters.HorizontalCategoryAdapter;
 import com.example.skourse.adapters.HorizontalCourseAdapter;
 import com.example.skourse.adapters.VerticalSearchResultAdapter;
 
@@ -32,5 +33,9 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView list_searchResult = (RecyclerView) findViewById(R.id.RecyclerView_searchResult);
         list_searchResult.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         list_searchResult.setAdapter(new VerticalSearchResultAdapter(new String[]{"MobileApp Course", "Vocal Course", "MobileApp Course", "Vocal Course"}));
+
+        RecyclerView list_category = (RecyclerView) findViewById(R.id.RecyclerView_category);
+        list_category.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        list_category.setAdapter(new HorizontalCategoryAdapter(new String[]{"Programming", "Music", "Art", "Social Science","Programming", "Music", "Art", "Social Science","Programming", "Music", "Art", "Social Science"}));
     }
 }

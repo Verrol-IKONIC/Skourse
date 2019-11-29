@@ -64,7 +64,7 @@
                 android:text="@string/Homepage_courseNearMe"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/button_search"
-                app:layout_constraintTop_toBottomOf="@+id/button_search" />
+                app:layout_constraintTop_toBottomOf="@+id/RecyclerView_category" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/RecyclerView_course"
@@ -99,11 +99,21 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/RecyclerView_searchResult"
                 android:layout_width="0dp"
-                android:layout_height="178dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/RecyclerView_recentlyBooked" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecyclerView_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_search" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
