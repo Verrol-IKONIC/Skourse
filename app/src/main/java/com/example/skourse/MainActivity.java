@@ -30,12 +30,8 @@ public class MainActivity extends AppCompatActivity {
         list_recently.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         list_recently.setAdapter(new HorizontalCourseAdapter(new String[]{"MobileApp Course", "Vocal Course"}));
 
-        RecyclerView list_searchResult = (RecyclerView) findViewById(R.id.RecyclerView_searchResult);
-        list_searchResult.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        list_searchResult.setAdapter(new VerticalSearchResultAdapter(new String[]{"MobileApp Course", "Vocal Course", "MobileApp Course", "Vocal Course"}));
-
         RecyclerView list_category = (RecyclerView) findViewById(R.id.RecyclerView_category);
         list_category.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        list_category.setAdapter(new HorizontalCategoryAdapter(new String[]{"Programming", "Music", "Art", "Social Science","Programming", "Music", "Art", "Social Science","Programming", "Music", "Art", "Social Science"}));
+        list_category.setAdapter(new HorizontalCategoryAdapter(new String[]{"programming", "music", "art", "social", "programming", "music", "art", "social"}));
     }
 }

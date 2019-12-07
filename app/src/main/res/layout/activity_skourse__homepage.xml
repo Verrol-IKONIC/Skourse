@@ -23,10 +23,12 @@
                 android:id="@+id/textView_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="@string/Homepage_title"
+                android:textAlignment="center"
                 android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,22 +36,24 @@
                 android:id="@+id/button_search"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="32dp"
                 android:background="@android:drawable/edit_text"
+                android:fontFamily="@font/pt_sans"
                 android:text="@string/Homepage_search"
                 android:textAlignment="textStart"
                 android:textColor="#999797"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_title" />
 
             <ImageView
                 android:id="@+id/imageView_iconSearch"
-                android:layout_width="35dp"
-                android:layout_height="38dp"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/button_search"
                 app:layout_constraintEnd_toEndOf="@+id/button_search"
@@ -61,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat"
                 android:text="@string/Homepage_courseNearMe"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/button_search"
@@ -73,7 +78,7 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_courseNearMe">
+                app:layout_constraintTop_toBottomOf="@+id/textView_course_count">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -81,7 +86,8 @@
                 android:id="@+id/textView_recentlyBooked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat"
                 android:text="@string/Homepage_recentlyBooked"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/textView_courseNearMe"
@@ -97,23 +103,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView_recentlyBooked" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/RecyclerView_searchResult"
+                android:id="@+id/RecyclerView_category"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/RecyclerView_recentlyBooked" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/RecyclerView_category"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_search" />
+
+            <TextView
+                android:id="@+id/textView_course_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_course_count"
+                app:layout_constraintStart_toStartOf="@+id/textView_courseNearMe"
+                app:layout_constraintTop_toBottomOf="@+id/textView_courseNearMe" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

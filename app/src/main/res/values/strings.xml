@@ -4,4 +4,5 @@
     <string name="Homepage_search">Search for courses</string>
     <string name="Homepage_courseNearMe">Courses near me</string>
     <string name="Homepage_recentlyBooked">Recently booked</string>
+    <string name="string_course_count">4 courses</string>
 </resources>
