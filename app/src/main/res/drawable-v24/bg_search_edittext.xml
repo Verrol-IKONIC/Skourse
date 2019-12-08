@@ -9,6 +9,7 @@
         />
     <corners
         android:radius="40dp"
+        android:elevation="16dp"
         />
     <stroke
         android:width="0dip"

@@ -46,5 +46,6 @@ public class HomeFragment extends Fragment {
     public void test(){
         Intent intent = new Intent(getActivity(), Skourse_Search.class);
         startActivity(intent);
+        getActivity().finish();
     }
 }

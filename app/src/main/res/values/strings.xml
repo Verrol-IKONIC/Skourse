@@ -11,4 +11,7 @@
     <string name="btn_search">Search</string>
     <string name="btn_back"><![CDATA[<]]></string>
     <string name="plaintext_Search">Search...</string>
+    <string name="Course">Course</string>
+    <string name="test">Test</string>
+    <string name="Search">Search</string>
 </resources>
