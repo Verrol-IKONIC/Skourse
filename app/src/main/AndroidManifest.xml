@@ -12,9 +12,6 @@
 
         <activity android:name=".Skourse_Search_Complete"></activity>
         <activity android:name=".Skourse_Search" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_skourse__search" />
         <activity android:name=".Skourse_Main">
 
             <intent-filter>
