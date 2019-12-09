@@ -5,14 +5,27 @@
     android:id="@+id/Cons_cardSerachResult"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
+    android:background="@android:color/transparent"
+    android:paddingLeft="2dp"
     android:paddingRight="2dp"
-    android:paddingLeft="2dp">
+    android:paddingBottom="10dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_card_search_result"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="107dp"
-        app:cardCornerRadius="@dimen/cardview_default_radius"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        android:elevation="26dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,7 +33,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Cons_cardView_cardSearchResult"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
+            android:layout_height="94dp"
+            android:background="@drawable/bg_card_course_list">
+
 
             <ImageView
                 android:id="@+id/imageView_courseSearchResult"
@@ -53,8 +69,12 @@
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView_courseTitle"
-                app:layout_constraintTop_toBottomOf="@+id/textView_courseTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_courseTitle"
+                app:layout_constraintVertical_bias="1.0" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

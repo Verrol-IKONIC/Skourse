@@ -1,8 +1,25 @@
 <resources>
     <string name="app_name">Skourse</string>
+
     <string name="Homepage_title">Home</string>
     <string name="Homepage_search">Search for courses</string>
     <string name="Homepage_courseNearMe">Courses near me</string>
     <string name="Homepage_recentlyBooked">Recently booked</string>
     <string name="string_course_count">4 courses</string>
+
+    <string name="title_activity_skourse__search">Skourse_Search</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="bottom_nav_Search">Search</string>
+    <string name="title_Mycourse" />
+    <string name="title_MyCourse">My Course</string>
+    <string name="title_Profile">Profile</string>
+    <string name="btn_search">Search</string>
+    <string name="btn_back"><![CDATA[<]]></string>
+    <string name="plaintext_Search">Search...</string>
+    <string name="Course">Course</string>
+    <string name="test">Test</string>
+    <string name="Search">Search</string>
+
 </resources>
