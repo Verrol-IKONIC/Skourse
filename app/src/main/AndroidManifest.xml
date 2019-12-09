@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Skourse_Search_Complete"></activity>
         <activity android:name=".Skourse_Search" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_skourse__search" />
         <activity android:name=".Skourse_Main">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
