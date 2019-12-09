@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Skourse</string>
+    <string name="app_name">Login</string>
+    <string name="prefLoginState">loginstate</string>
 </resources>
