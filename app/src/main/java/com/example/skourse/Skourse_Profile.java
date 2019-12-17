@@ -43,7 +43,7 @@ public class Skourse_Profile extends AppCompatActivity {
     String username = "", role = "", name = "", birthday = "", email = "",
             gender = "", phone = "", city = "", address = "", favourite = "";
     ProgressBar progressBar_loading;
-    Button button_editProfile;
+    Button button_editProfile, button_saveProfile;
     KeyListener listener1, listener2, listener3, listener4, listener5, listener6, listener7, listener8;
 
     @Override
@@ -62,6 +62,9 @@ public class Skourse_Profile extends AppCompatActivity {
         textView_showFavourite = findViewById(R.id.textView_showFavourite);
         progressBar_loading = findViewById(R.id.progressBar_loading);
         button_editProfile = findViewById(R.id.button_editProfile);
+        button_saveProfile = findViewById(R.id.button_saveProfile);
+
+        button_saveProfile.setVisibility(View.INVISIBLE);
 
         progressBar_loading.setVisibility(View.VISIBLE);
 
@@ -98,6 +101,9 @@ public class Skourse_Profile extends AppCompatActivity {
         textView_showFavourite.setKeyListener(null);
         textView_showFavourite.setBackgroundColor(Color.TRANSPARENT);
 
+
+        button_saveProfile.setText("Save Changes");
+
         requestQueue = Volley.newRequestQueue(Skourse_Profile.this);
         load_data();
 
@@ -105,7 +111,8 @@ public class Skourse_Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                button_editProfile.setText("Save Changes");
+                button_editProfile.setVisibility(View.INVISIBLE);
+                button_saveProfile.setVisibility(View.VISIBLE);
 
                 textView_showFullName.setKeyListener(listener1);
                 textView_showFullName.setBackgroundColor(Color.TRANSPARENT);
@@ -132,76 +139,112 @@ public class Skourse_Profile extends AppCompatActivity {
                 textView_showFavourite.setKeyListener(listener8);
                 textView_showFavourite.setBackgroundColor(Color.TRANSPARENT);
 
-                button_editProfile.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        name = textView_showFullName.getText().toString();
-                        birthday = textView_showBirthday.getText().toString();
-                        email = textView_showEmail.getText().toString();
-                        gender = textView_showGender.getText().toString();
-                        phone = textView_showPhone.getText().toString();
-                        city = textView_showCity.getText().toString();
-                        address = textView_showAddress.getText().toString();
-                        favourite = textView_showFavourite.getText().toString();
-                        String url = "https://verrol-mad.000webhostapp.com/skourse/edit_profile.php";
-                        progressBar_loading.setVisibility(View.VISIBLE);
-                        Map<String, String> params = new HashMap<>();
-                        params.put("nama", name);
-                        params.put("birthday", birthday);
-                        params.put("email", email);
-                        params.put("gender", gender);
-                        params.put("phone", phone);
-                        params.put("city", city);
-                        params.put("address", address);
-                        params.put("favourite", favourite);
-                        JSONObject parameters = new JSONObject(params);
-                        JsonObjectRequest jor = new JsonObjectRequest(Request.Method.POST, url, parameters,
-                                new Response.Listener<JSONObject>() {
-                                    @Override
-                                    public void onResponse(JSONObject response) {
-                                        //get json data from server
-                                        JSONArray hasil = null;
-                                        try {
-                                            hasil = response.getJSONArray("profile");
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
+
+            }
+        });
+        button_saveProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                name = textView_showFullName.getText().toString();
+                birthday = textView_showBirthday.getText().toString();
+                email = textView_showEmail.getText().toString();
+                gender = textView_showGender.getText().toString();
+                phone = textView_showPhone.getText().toString();
+                city = textView_showCity.getText().toString();
+                address = textView_showAddress.getText().toString();
+                favourite = textView_showFavourite.getText().toString();
+                String url = "https://verrol-mad.000webhostapp.com/skourse/edit_profile.php";
+                progressBar_loading.setVisibility(View.VISIBLE);
+                Map<String, String> params = new HashMap<>();
+                params.put("nama", name);
+                params.put("birthday", birthday);
+                params.put("email", email);
+                params.put("gender", gender);
+                params.put("phone", phone);
+                params.put("city", city);
+                params.put("address", address);
+                params.put("favourite", favourite);
+                JSONObject parameters = new JSONObject(params);
+                JsonObjectRequest jor = new JsonObjectRequest(Request.Method.POST, url, parameters,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                //get json data from server
+                                JSONArray hasil = null;
+                                try {
+                                    hasil = response.getJSONArray("profile");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                                if(hasil.length()==0){
+
+                                }else{
+                                    try {
+                                        JSONObject obj = hasil.getJSONObject(0);
+                                        String msg = "";
+                                        msg = obj.getString("msg");
+                                        if(msg.equalsIgnoreCase("success")){
+                                            progressBar_loading.setVisibility(View.INVISIBLE);
+                                            button_editProfile.setVisibility(View.VISIBLE);
+                                            button_saveProfile.setVisibility(View.INVISIBLE);
+                                            Toast.makeText(Skourse_Profile.this, "Berhasil update data mahasiswa", Toast.LENGTH_SHORT).show();
+                                        }else if(msg.equalsIgnoreCase("failed")) {
+                                            Toast.makeText(Skourse_Profile.this, "Gagal update data mahasiswa", Toast.LENGTH_SHORT).show();
                                         }
-
-                                        if(hasil.length()==0){
-
-                                        }else{
-                                            try {
-                                                JSONObject obj = hasil.getJSONObject(0);
-                                                String msg = "";
-                                                msg = obj.getString("msg");
-                                                if(msg.equalsIgnoreCase("success")){
-                                                    progressBar_loading.setVisibility(View.INVISIBLE);
-                                                    button_editProfile.setText("Edit Profile");
-                                                    Toast.makeText(Skourse_Profile.this, "Berhasil update data mahasiswa", Toast.LENGTH_SHORT).show();
-                                                }else if(msg.equalsIgnoreCase("failed")) {
-                                                    Toast.makeText(Skourse_Profile.this, "Gagal update data mahasiswa", Toast.LENGTH_SHORT).show();
-                                                }
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                                progressBar_loading.setVisibility(View.INVISIBLE);
-                                                button_editProfile.setText("Edit Profile");
-
-                                                load_data();
-                                            }
-                                        }
-                                    }
-                                },
-                                new Response.ErrorListener() {
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
                                         progressBar_loading.setVisibility(View.INVISIBLE);
-                                        button_editProfile.setText("Edit Profile");
+                                        button_editProfile.setVisibility(View.VISIBLE);
+                                        button_saveProfile.setVisibility(View.INVISIBLE);
+
+                                        load_data();
                                     }
                                 }
-                        );
-                        requestQueue.add(jor);
-                    }
-                });
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                progressBar_loading.setVisibility(View.INVISIBLE);
+                                button_editProfile.setVisibility(View.VISIBLE);
+                                button_saveProfile.setVisibility(View.INVISIBLE);
+                            }
+                        }
+                );
+                requestQueue.add(jor);
+                listener1 = textView_showFullName.getKeyListener();
+                textView_showFullName.setKeyListener(null);
+                textView_showFullName.setBackgroundColor(Color.TRANSPARENT);
+
+                listener2 = textView_showBirthday.getKeyListener();
+                textView_showBirthday.setKeyListener(null);
+                textView_showBirthday.setBackgroundColor(Color.TRANSPARENT);
+
+
+                listener3 = textView_showEmail.getKeyListener();
+                textView_showEmail.setKeyListener(null);
+                textView_showEmail.setBackgroundColor(Color.TRANSPARENT);
+
+                listener4 = textView_showGender.getKeyListener();
+                textView_showGender.setKeyListener(null);
+                textView_showGender.setBackgroundColor(Color.TRANSPARENT);
+
+                listener5 = textView_showPhone.getKeyListener();
+                textView_showPhone.setKeyListener(null);
+                textView_showPhone.setBackgroundColor(Color.TRANSPARENT);
+
+                listener6 = textView_showCity.getKeyListener();
+                textView_showCity.setKeyListener(null);
+                textView_showCity.setBackgroundColor(Color.TRANSPARENT);
+
+                listener7 = textView_showAddress.getKeyListener();
+                textView_showAddress.setKeyListener(null);
+                textView_showAddress.setBackgroundColor(Color.TRANSPARENT);
+
+                listener8 = textView_showFavourite.getKeyListener();
+                textView_showFavourite.setKeyListener(null);
+                textView_showFavourite.setBackgroundColor(Color.TRANSPARENT);
             }
         });
     }
@@ -249,29 +292,6 @@ public class Skourse_Profile extends AppCompatActivity {
                                 textView_showAddress.setText(address);
                                 textView_showFavourite.setText(favourite);
 
-                                textView_showFullName.setKeyListener(null);
-                                textView_showFullName.setBackgroundColor(Color.TRANSPARENT);
-
-                                textView_showBirthday.setKeyListener(null);
-                                textView_showBirthday.setBackgroundColor(Color.TRANSPARENT);
-
-                                textView_showEmail.setKeyListener(null);
-                                textView_showEmail.setBackgroundColor(Color.TRANSPARENT);
-
-                                textView_showGender.setKeyListener(null);
-                                textView_showGender.setBackgroundColor(Color.TRANSPARENT);
-
-                                textView_showPhone.setKeyListener(null);
-                                textView_showPhone.setBackgroundColor(Color.TRANSPARENT);
-
-                                textView_showCity.setKeyListener(null);
-                                textView_showCity.setBackgroundColor(Color.TRANSPARENT);
-
-                                textView_showAddress.setKeyListener(null);
-                                textView_showAddress.setBackgroundColor(Color.TRANSPARENT);
-
-                                textView_showFavourite.setKeyListener(null);
-                                textView_showFavourite.setBackgroundColor(Color.TRANSPARENT);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

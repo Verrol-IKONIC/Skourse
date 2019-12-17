@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import c.i.week5_bottomnav.R;
+import com.example.skourse.R;
 
 /**
  * A simple {@link Fragment} subclass.
