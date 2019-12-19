@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
@@ -15,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +23,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.skourse.R;
@@ -41,10 +42,13 @@ public class Skourse_Profile extends AppCompatActivity {
     TextView textView_nama, textView_role;
     RequestQueue requestQueue;
     String username = "", role = "", name = "", birthday = "", email = "",
-            gender = "", phone = "", city = "", address = "", favourite = "";
+            gender = "", phone = "", city = "", address = "", favourite = "", imagee="";
     ProgressBar progressBar_loading;
     Button button_editProfile, button_saveProfile;
     KeyListener listener1, listener2, listener3, listener4, listener5, listener6, listener7, listener8;
+    ImageView image;
+    int loader = R.drawable.sihun;
+    ImageLoader imgLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,9 @@ public class Skourse_Profile extends AppCompatActivity {
         progressBar_loading = findViewById(R.id.progressBar_loading);
         button_editProfile = findViewById(R.id.button_editProfile);
         button_saveProfile = findViewById(R.id.button_saveProfile);
+        image = (ImageView) findViewById(R.id.imageView_profilePic);
+        imgLoader = new ImageLoader(getApplicationContext());
+
 
         button_saveProfile.setVisibility(View.INVISIBLE);
 
@@ -278,6 +285,15 @@ public class Skourse_Profile extends AppCompatActivity {
                                 city = obj.getString("city");
                                 address = obj.getString("address");
                                 favourite = obj.getString("favourite");
+                                imagee = obj.getString("image");
+                                String image_url = "https://verrol-mad.000webhostapp.com/skourse/image/"+imagee;
+
+                                // whenever you want to load an image from url
+                                // call DisplayImage function
+                                // url - image url to load
+                                // loader - loader image, will be displayed before getting image
+                                // image - ImageView
+                                imgLoader.DisplayImage(image_url, loader, image);
 
                                 progressBar_loading.setVisibility(View.INVISIBLE);
                                 //show in textView
