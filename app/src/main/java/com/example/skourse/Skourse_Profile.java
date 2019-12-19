@@ -2,16 +2,11 @@ package com.example.skourse;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
 import android.text.method.KeyListener;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,7 +21,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.skourse.R;
+
+import com.example.skourse.ImageLoaders;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +45,7 @@ public class Skourse_Profile extends AppCompatActivity {
     KeyListener listener1, listener2, listener3, listener4, listener5, listener6, listener7, listener8;
     ImageView image;
     int loader = R.drawable.sihun;
-    ImageLoader imgLoader;
+    ImageLoaders imgLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +65,7 @@ public class Skourse_Profile extends AppCompatActivity {
         button_editProfile = findViewById(R.id.button_editProfile);
         button_saveProfile = findViewById(R.id.button_saveProfile);
         image = (ImageView) findViewById(R.id.imageView_profilePic);
-        imgLoader = new ImageLoader(getApplicationContext());
+        imgLoader = new ImageLoaders(getApplicationContext());
 
 
         button_saveProfile.setVisibility(View.INVISIBLE);
@@ -294,6 +291,7 @@ public class Skourse_Profile extends AppCompatActivity {
                                 // loader - loader image, will be displayed before getting image
                                 // image - ImageView
                                 imgLoader.DisplayImage(image_url, loader, image);
+
 
                                 progressBar_loading.setVisibility(View.INVISIBLE);
                                 //show in textView
