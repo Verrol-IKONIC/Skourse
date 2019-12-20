@@ -38,4 +38,7 @@
     <string name="menuProfile_title">PROFILE MENU</string>
     <string name="btn_myProfile">My Profile</string>
 
+    <!-- for login register -->
+    <string name="prefLoginState">loginstate</string>
+
 </resources>

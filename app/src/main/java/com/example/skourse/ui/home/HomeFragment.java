@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
         requestQueue = Volley.newRequestQueue(getActivity());
         loadCourse();
 
-        courseCount.setText(rv_crs.getAdapter().getItemCount()+" courses");
+
 
         //RecyclerView list_recently = view.findViewById(R.id.RecyclerView_recentlyBooked);
         //list_recently.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
