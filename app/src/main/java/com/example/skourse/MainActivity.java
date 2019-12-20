@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(home);
                 finish();
 
+//                Skourse_MainProfile skourse_mainProfile = new Skourse_MainProfile();
+//                FragmentTransaction ftHome = getSupportFragmentManager().beginTransaction();
+//                ftHome.replace(R.id.activity_main, skourse_mainProfile, "Home");
+//                ftHome.commit();
+
             }
         }, waktu_loading);
     }
