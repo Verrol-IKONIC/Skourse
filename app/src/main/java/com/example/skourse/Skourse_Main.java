@@ -25,7 +25,7 @@ public class Skourse_Main extends AppCompatActivity {
 
         HomeFragment fragmentHome = new HomeFragment();
         FragmentTransaction ftHome = getSupportFragmentManager().beginTransaction();
-        ftHome.replace(R.id.nav_host_fragment, fragmentHome, "Home");
+        ftHome.replace(R.id.main_frame, fragmentHome, "Home");
         ftHome.commit();
 
 
@@ -37,19 +37,19 @@ public class Skourse_Main extends AppCompatActivity {
                     case R.id.navigation_Home:
                         HomeFragment fragmentHome = new HomeFragment();
                         FragmentTransaction ftHome = getSupportFragmentManager().beginTransaction();
-                        ftHome.replace(R.id.nav_host_fragment, fragmentHome, "Home");
+                        ftHome.replace(R.id.main_frame, fragmentHome, "Home");
                         ftHome.commit();
                         return true;
                     case R.id.navigation_myCourse:
                         MyCourseFragment fragmentCourse = new MyCourseFragment();
                         FragmentTransaction ftMycourse = getSupportFragmentManager().beginTransaction();
-                        ftMycourse.replace(R.id.nav_host_fragment, fragmentCourse, "My Course");
+                        ftMycourse.replace(R.id.main_frame, fragmentCourse, "My Course");
                         ftMycourse.commit();
                         return true;
                     case R.id.navigation_Profile:
                         ProfileFragment fragmentProfile = new ProfileFragment();
                         FragmentTransaction ftProfile = getSupportFragmentManager().beginTransaction();
-                        ftProfile.replace(R.id.nav_host_fragment, fragmentProfile, "Profile");
+                        ftProfile.replace(R.id.main_frame, fragmentProfile, "Profile");
                         ftProfile.commit();
                         return true;
                 }

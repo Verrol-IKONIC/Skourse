@@ -20,8 +20,7 @@ public class MyCourseFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        myCourseViewModel =
-                ViewModelProviders.of(this).get(MyCourseViewModel.class);
+        myCourseViewModel = ViewModelProviders.of(this).get(MyCourseViewModel.class);
         View root = inflater.inflate(R.layout.fragment_mycourse, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
         myCourseViewModel.getText().observe(this, new Observer<String>() {

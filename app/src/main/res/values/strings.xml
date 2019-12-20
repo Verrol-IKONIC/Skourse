@@ -22,4 +22,20 @@
     <string name="test">Test</string>
     <string name="Search">Search</string>
 
+    <!-- for skourse profile fragment-->
+    <string name="profile_nama">Verrol</string>
+    <string name="profile_role">Student</string>
+    <string name="profile_title">Account Info</string>
+    <string name="profile_fullName">Full Name</string>
+    <string name="profile_birthday">Birthday</string>
+    <string name="profile_email">Email</string>
+    <string name="profile_gender">Gender</string>
+    <string name="profile_phone">Phone</string>
+    <string name="profile_city">City</string>
+    <string name="profile_address">Address</string>
+    <string name="profile_favourite">Favourite</string>
+    <string name="profile_editProfile">Edit Profile</string>
+    <string name="menuProfile_title">PROFILE MENU</string>
+    <string name="btn_myProfile">My Profile</string>
+
 </resources>

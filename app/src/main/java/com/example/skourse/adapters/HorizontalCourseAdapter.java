@@ -6,16 +6,23 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.skourse.R;
+import com.example.skourse.model.Course;
+
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class HorizontalCourseAdapter extends RecyclerView.Adapter<HorizontalCourseAdapter.HorizontalViewHolder> {
 
-    private String [] item_courseTitle;
+    private ArrayList<Course> item_course;
 
-    public HorizontalCourseAdapter(String[] item_courseTitle) {
-        this.item_courseTitle = item_courseTitle;
+    public HorizontalCourseAdapter(ArrayList<Course> item_course) {
+        this.item_course = item_course;
+    }
+
+    public void setListCourse(ArrayList<Course> listCourse) {
+        this.item_course = listCourse;
     }
 
     @Override
@@ -27,12 +34,12 @@ public class HorizontalCourseAdapter extends RecyclerView.Adapter<HorizontalCour
 
     @Override
     public void onBindViewHolder(@NonNull HorizontalViewHolder holder, int position) {
-        holder.titleCourse.setText(item_courseTitle[position]);
+        holder.titleCourse.setText(item_course.get(position).getSubject_title());
     }
 
     @Override
     public int getItemCount() {
-        return item_courseTitle.length;
+        return item_course.size();
     }
 
     public class HorizontalViewHolder extends RecyclerView.ViewHolder{
@@ -40,7 +47,6 @@ public class HorizontalCourseAdapter extends RecyclerView.Adapter<HorizontalCour
         public HorizontalViewHolder(@NonNull View itemView) {
             super(itemView);
             titleCourse = (TextView) itemView.findViewById(R.id.textView_courseTitle);
-
         }
     }
 }
